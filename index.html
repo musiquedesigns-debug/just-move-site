@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Just Move · Cătălin. Mișcare, minte și hrană bună</title>
+<meta name="description" content="Just Move: jocuri de mișcare pentru copii, workshop-uri de mișcare și meditație pentru adulți, consiliere nutrițională și programe de wellbeing pentru companii și școli.">
+<meta property="og:title" content="Just Move · Mișcare, minte și hrană bună">
+<meta property="og:description" content="Pentru copii, adulți și echipe. Un studio, un om, patru feluri de a te simți bine.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='34' fill='%23C2643B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F4ECDD; --cream-2:#EADFC9; --sand:#DDC9A6;
+  --terra:#C2643B; --terra-deep:#9A4A2A; --olive:#5F6B3E; --olive-soft:#B9C29A;
+  --ink:#2B2622; --muted:#6F655B; --line:#2B2622;
+  --sun:#F3BE3F; --grass:#6BA36A; --sky:#BFD9E3; --berry:#D9605B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Karla',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'SOFT' 100;letter-spacing:-0.015em;line-height:1.05;font-weight:500}
+h1{font-size:clamp(46px,8.5vw,112px)}
+h2{font-size:clamp(34px,5vw,62px)}
+h3{font-size:clamp(22px,2.6vw,28px)}
+.it{font-style:italic;font-weight:400}
+p{max-width:60ch}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+section{padding:84px 0;position:relative}
+.lede{font-size:clamp(17px,1.9vw,20px);color:var(--muted)}
+.hand{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:22px;color:var(--terra)}
+/* grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.09;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.screen{display:none}.screen.on{display:block}
+/* header */
+header.site{position:sticky;top:0;z-index:90;background:rgba(244,236,221,.86);backdrop-filter:blur(10px)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:24px;letter-spacing:-0.02em}
+.logo svg{width:34px;height:34px}
+nav{display:flex;gap:28px;font-weight:500;font-size:15px}
+nav a{position:relative}
+nav a.now::after{opacity:1}
+nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8'%3E%3Cpath d='M1 5 C 20 1, 40 7, 60 4 S 90 2, 99 5' fill='none' stroke='%23C2643B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center/100% 100%;opacity:0;transition:opacity .25s}
+nav a:hover::after{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:15px;border:1.5px solid var(--ink);cursor:pointer;font-family:'Karla',sans-serif;background:var(--ink);color:var(--cream);transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px) rotate(-1deg)}
+.btn-terra{background:var(--terra);border-color:var(--terra);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-cream{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+.btn-sun{background:var(--sun);border-color:var(--sun);color:var(--ink)}
+.btn-sm{padding:10px 18px;font-size:14px}
+.btn svg{width:18px;height:18px}
+/* photos */
+.ph{position:relative;overflow:hidden;background:var(--sand);display:flex;align-items:flex-end;padding:12px;font-size:12px;font-weight:600;color:var(--ink)}
+.ph span{background:rgba(255,255,255,.7);padding:4px 8px;border-radius:6px;position:relative}
+.ph.img{background-size:cover;background-position:center}
+.ph.img span{display:none}
+.ph.img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(194,100,59,.06),rgba(43,38,34,.12));mix-blend-mode:multiply;pointer-events:none}
+.blob-a{border-radius:58% 42% 55% 45% / 48% 55% 45% 52%}
+.blob-b{border-radius:42% 58% 47% 53% / 55% 43% 57% 45%}
+.blob-c{border-radius:50% 50% 45% 55% / 60% 60% 40% 40%}
+.arch{border-radius:999px 999px 24px 24px}
+.tape{position:relative;border-radius:6px;box-shadow:0 18px 40px -18px rgba(43,38,34,.45);transform:rotate(-2deg)}
+.tape::before{content:"";position:absolute;top:-14px;left:50%;width:110px;height:28px;background:rgba(243,190,63,.7);transform:translateX(-50%) rotate(3deg);z-index:2}
+.tape.r{transform:rotate(1.5deg)}
+.tape.r::before{transform:translateX(-50%) rotate(-4deg);background:rgba(191,217,227,.85)}
+/* line art */
+.la{stroke:var(--line);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.la.terra{stroke:var(--terra)}.la.olive{stroke:var(--olive)}.la.sun{stroke:#B8891A}
+.draw path,.draw circle,.draw line,.draw ellipse{stroke-dasharray:1000;stroke-dashoffset:1000}
+.draw.in path,.draw.in circle,.draw.in line,.draw.in ellipse{animation:draw 2.2s ease forwards}
+.draw.in path:nth-child(2){animation-delay:.25s}.draw.in path:nth-child(3){animation-delay:.5s}.draw.in path:nth-child(4){animation-delay:.75s}.draw.in path:nth-child(5){animation-delay:1s}.draw.in path:nth-child(6){animation-delay:1.2s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.float{animation:float 7s ease-in-out infinite}
+.float.d2{animation-delay:-2.5s}.float.d3{animation-delay:-4.5s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(3deg)}}
+.spin{animation:spin 40s linear infinite;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.breathe{animation:breathe 6s ease-in-out infinite;transform-origin:center}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.18);opacity:1}}
+.deco{position:absolute;pointer-events:none}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+/* organic dividers */
+.wave{display:block;width:100%;height:60px}
+.wave path{fill:var(--cream-2)}
+/* HERO home */
+.hero{padding:56px 0 0;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center}
+.hero h1{margin-top:18px}
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(20px);animation:up .8s ease forwards}
+.hero h1 .w:nth-child(2){animation-delay:.15s}.hero h1 .w:nth-child(3){animation-delay:.3s}.hero h1 .w:nth-child(4){animation-delay:.45s}
+@keyframes up{to{opacity:1;transform:none}}
+.hero .lede{margin:22px 0 30px;max-width:46ch}
+.hero-art{position:relative}
+.hero-art .ph{aspect-ratio:4/5}
+.hero-art .sunburst{position:absolute;top:-40px;right:-30px;width:170px;height:170px}
+.hero-art .leaf{position:absolute;bottom:-20px;left:-40px;width:150px}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:-30px;position:relative;z-index:2}
+.path{background:#fff;border:1.5px solid var(--ink);border-radius:24px;padding:22px 22px 18px;display:flex;flex-direction:column;gap:6px;box-shadow:6px 6px 0 var(--ink);transition:transform .2s,box-shadow .2s}
+.path:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.path svg{width:52px;height:52px;margin-bottom:6px}
+.path b{font-family:'Fraunces',serif;font-size:28px;font-weight:500;letter-spacing:-0.02em}
+.path small{color:var(--muted);font-size:14px}
+.path.kids{background:#FFF3C7}.path.team{background:#E9EFE0}
+/* marquee */
+.marquee{overflow:hidden;background:var(--ink);color:var(--cream);padding:16px 0;font-family:'Fraunces',serif;font-style:italic;font-size:22px;white-space:nowrap}
+.marquee div{display:inline-block;animation:mq 30s linear infinite}
+.marquee span{margin:0 26px}
+.marquee svg{width:16px;height:16px;vertical-align:middle;stroke:var(--sun)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.pillar{text-align:center;padding:28px 18px}
+.pillar svg{width:96px;height:96px;margin:0 auto 14px;display:block}
+.pillar b{display:block;font-family:'Fraunces',serif;font-size:30px;font-weight:500;margin-bottom:8px}
+.pillar p{font-size:15px;color:var(--muted);margin:0 auto}
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split .ph{aspect-ratio:4/5}
+.quote{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,42px);font-weight:400;line-height:1.2;letter-spacing:-0.01em}
+.quote .it{color:var(--terra)}
+.sig{margin-top:18px;color:var(--muted)}
+.sig b{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:26px;color:var(--ink);display:block;letter-spacing:0}
+/* events */
+.rowhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px;gap:20px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{display:flex;flex-direction:column}
+.card .ph{aspect-ratio:4/3;margin-bottom:16px}
+.date{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:17px}
+.card h3{margin:4px 0 8px}
+.meta{font-size:14px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.price{font-family:'Fraunces',serif;font-size:20px;color:var(--ink)}
+/* shop grid */
+.shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.prod .ph{aspect-ratio:1/1;border-radius:20px 20px 60px 20px;margin-bottom:12px}
+.prod .type{font-size:13px;color:var(--terra);font-style:italic;font-family:'Fraunces',serif}
+.prod h3{font-size:19px;line-height:1.2;margin:2px 0 8px}
+.prod .buy{display:flex;justify-content:space-between;align-items:center}
+.tag{font-size:12px;border:1px solid var(--ink);padding:3px 10px;border-radius:999px}
+/* testimonials */
+.testi{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.t{padding:30px 28px;border:1.5px solid var(--ink);border-radius:30px 30px 30px 6px;background:var(--cream-2);position:relative}
+.t::before{content:"“";position:absolute;top:-22px;left:22px;font-family:'Fraunces',serif;font-size:72px;line-height:1;color:var(--terra)}
+.t p{font-family:'Fraunces',serif;font-size:19px;font-weight:400;line-height:1.35}
+.t .who{display:flex;gap:12px;align-items:center;margin-top:18px;font-size:14px}
+.t .who .ph{width:44px;height:44px;border-radius:50%;padding:0;flex:none}
+.t .who .ph span{display:none}
+.t .who b{display:block}.t .who small{color:var(--muted)}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:end}
+.gal .ph{width:100%}
+/* newsletter */
+.news{background:var(--olive);color:var(--cream);border-radius:40px 40px 40px 8px;padding:60px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.news h2{color:var(--cream)}
+.news p{color:rgba(244,236,221,.8);margin-top:10px}
+.news .deco{right:-20px;top:-30px;width:220px;opacity:.35}
+.field{display:flex;gap:8px;background:var(--cream);padding:6px;border-radius:999px}
+.field input{flex:1;border:0;padding:12px 18px;font:inherit;background:transparent;outline:none;color:var(--ink)}
+footer{padding:60px 0 32px;font-size:14px;color:var(--muted);border-top:1.5px dashed var(--sand)}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:34px}
+footer b{color:var(--ink);display:block;margin-bottom:10px;font-family:'Fraunces',serif;font-size:17px}
+footer a{display:block;margin-bottom:6px}
+/* CORPORATE */
+.hero-b2b{background:var(--ink);color:var(--cream);padding:80px 0 0;overflow:hidden}
+.hero-b2b .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.hero-b2b h1{font-size:clamp(42px,6.5vw,88px);color:var(--cream)}
+.hero-b2b .lede{color:rgba(244,236,221,.75);margin:20px 0 30px}
+.hero-b2b .ph{aspect-ratio:4/5}
+.hero-b2b .la{stroke:var(--sand)}
+.trust{background:var(--cream-2);padding:22px 0}
+.trust .wrap{display:flex;gap:40px;align-items:center;justify-content:space-between;flex-wrap:wrap;color:var(--muted);font-size:14px}
+.logos{display:flex;gap:30px;font-family:'Fraunces',serif;font-weight:600;font-size:18px;color:var(--sand)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.stat{padding:32px;border-top:1.5px solid var(--ink)}
+.stat b{font-family:'Fraunces',serif;font-size:72px;font-weight:300;letter-spacing:-0.03em;color:var(--terra);display:block;line-height:1}
+.stat p{margin-top:10px;font-size:15px;color:var(--muted)}
+.formats{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.fmt{display:grid;grid-template-columns:180px 1fr;gap:22px;align-items:center}
+.fmt .ph{aspect-ratio:1/1}
+.fmt .dur{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:16px}
+.fmt p{font-size:15px;color:var(--muted);margin-top:8px}
+.fmt.wide{grid-column:span 2;grid-template-columns:320px 1fr;background:var(--cream-2);padding:26px;border-radius:32px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.step{position:relative;padding:26px 0 0}
+.step .n{font-family:'Fraunces',serif;font-style:italic;font-size:44px;color:var(--terra);line-height:1;margin-bottom:12px;font-weight:300}
+.step p{font-size:15px;color:var(--muted);margin-top:6px}
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.plan{padding:32px;border:1.5px solid var(--ink);border-radius:32px;background:var(--cream)}
+.plan.hot{background:var(--terra);color:#fff;border-color:var(--terra);transform:rotate(-1deg)}
+.plan .from{font-size:14px;opacity:.75;font-style:italic;font-family:'Fraunces',serif}
+.plan .p{font-family:'Fraunces',serif;font-size:42px;font-weight:400;letter-spacing:-0.02em;line-height:1.1;margin:6px 0 16px}
+.plan ul{list-style:none;font-size:15px;display:grid;gap:8px;margin-bottom:22px}
+.plan li::before{content:"✓ ";font-weight:700;color:var(--terra)}
+.plan.hot li::before{color:#FFD9C9}
+.formwrap{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.form{background:#fff;border:1.5px solid var(--ink);border-radius:32px;padding:32px;display:grid;gap:14px;box-shadow:8px 8px 0 var(--sand)}
+.form .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form label{font-size:13px;font-weight:700;display:block;margin-bottom:5px}
+.form input,.form select,.form textarea{width:100%;border:0;border-bottom:1.5px solid var(--ink);padding:10px 2px;font:inherit;background:transparent;outline:none;border-radius:0}
+.form textarea{min-height:90px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--ink);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer}
+.chip.on{background:var(--ink);color:var(--cream)}
+.faq details{border-top:1.5px dashed var(--sand);padding:18px 0}
+.faq details:last-child{border-bottom:1.5px dashed var(--sand)}
+.faq summary{cursor:pointer;font-family:'Fraunces',serif;font-size:20px;list-style:none;display:flex;justify-content:space-between}
+.faq summary::after{content:"+";font-size:24px;color:var(--terra)}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin-top:10px;color:var(--muted);font-size:15px}
+/* KIDS palette screens */
+.kids{--cream:#FFF6DF;--cream-2:#FFE9A8;--sand:#FFD86B;--terra:#E2573F;--olive:#6BA36A;--muted:#6B5B3E;background:var(--cream)}
+.kids .hero-kids{padding:70px 0 0;overflow:hidden;position:relative}
+.kids .hero-kids .grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.kids h1{font-size:clamp(42px,7vw,88px)}
+.kids .hero-kids .lede{margin:20px 0 30px}
+.kids .hero-kids .ph{aspect-ratio:1/1}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--sun);animation:float 6s ease-in-out infinite}
+.confetti i:nth-child(2){background:var(--grass);width:18px;height:18px;border-radius:30%}
+.confetti i:nth-child(3){background:var(--berry)}
+.confetti i:nth-child(4){background:var(--sky);width:22px;height:22px}
+.confetti i:nth-child(5){background:var(--terra);width:9px;height:9px}
+.kids .ages{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
+.kids .ages button{border:1.5px solid var(--ink);background:#fff;border-radius:999px;padding:10px 20px;font:inherit;font-weight:700;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.kids .ages button.on{background:var(--sun)}
+.kids .pillar{background:#fff;border:1.5px solid var(--ink);border-radius:26px;box-shadow:5px 5px 0 var(--ink)}
+.kids .pillar:nth-child(odd){transform:rotate(-1.5deg)}.kids .pillar:nth-child(even){transform:rotate(1.2deg)}
+.sched{width:100%;border-collapse:collapse;background:#fff;border:1.5px solid var(--ink);border-radius:26px;overflow:hidden;box-shadow:6px 6px 0 var(--ink)}
+.sched th,.sched td{padding:16px 18px;text-align:left;border-bottom:1.5px dashed var(--sand);font-size:15px}
+.sched th{font-family:'Fraunces',serif;font-size:18px;background:var(--cream-2)}
+.sched td small{display:block;color:var(--muted)}
+.sched tr:last-child td{border-bottom:0}
+.kids .plan{background:#fff;box-shadow:6px 6px 0 var(--ink)}
+.kids .plan.hot{background:var(--sun);color:var(--ink);border-color:var(--ink)}
+.kids .plan.hot li::before{color:var(--terra)}
+.kids .btn-terra{background:var(--terra);border-color:var(--terra)}
+.kids .form{box-shadow:8px 8px 0 var(--sun)}
+.progs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prog{background:#fff;border:1.5px solid var(--ink);border-radius:26px;padding:22px;box-shadow:6px 6px 0 var(--ink);display:flex;flex-direction:column;gap:8px}
+.prog .ph{aspect-ratio:16/10;border-radius:16px;margin-bottom:6px}
+.prog .dur{font-family:'Fraunces',serif;font-style:italic;color:var(--terra)}
+.prog p{font-size:15px;color:var(--muted)}
+.safe{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.safe div{padding:22px;border-radius:22px;background:#fff;border:1.5px dashed var(--ink)}
+.safe b{display:block;margin-bottom:4px;font-family:'Fraunces',serif;font-size:19px}
+.safe p{font-size:14px;color:var(--muted)}
+/* adults services */
+.svc{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:70px 0;border-top:1.5px dashed var(--sand)}
+.svc:first-child{border-top:0}
+.svc .ph{aspect-ratio:4/3}
+.svc.flip .ph{order:2}
+.svc ul{list-style:none;display:grid;gap:8px;margin:18px 0 22px;font-size:15px}
+.svc li::before{content:"— ";color:var(--terra)}
+.svc .pr{font-family:'Fraunces',serif;font-style:italic;font-size:22px;margin-bottom:16px;color:var(--terra)}
+.quiz{background:var(--ink);color:var(--cream);border-radius:40px 8px 40px 40px;padding:60px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.quiz h2{color:var(--cream)}
+.quiz p{color:rgba(244,236,221,.75);margin-top:10px}
+.qcard{background:var(--cream);color:var(--ink);border-radius:26px;padding:28px;position:relative;z-index:1}
+.qcard .qn{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);margin-bottom:8px}
+.qcard h3{margin-bottom:16px}
+.opt{display:block;border:1.5px solid var(--ink);border-radius:14px;padding:12px 16px;margin-bottom:8px;cursor:pointer;font-size:15px}
+.opt.on{background:var(--ink);color:var(--cream)}
+.bar{height:5px;background:var(--sand);border-radius:99px;margin-top:14px;overflow:hidden}
+.bar i{display:block;width:20%;height:100%;background:var(--terra)}
+/* despre */
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:40px;position:relative}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:22px;height:2px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 6'%3E%3Cpath d='M0 3 Q 50 0, 100 3 T 200 3 T 300 3 T 400 3' fill='none' stroke='%232B2622' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x}
+.tl{padding:0 18px 0 0;position:relative}
+.tl i{display:block;width:14px;height:14px;border-radius:50%;background:var(--terra);border:2px solid var(--cream);margin:16px 0 14px;position:relative;z-index:1}
+.tl b{font-family:'Fraunces',serif;font-size:30px;font-weight:300;display:block}
+.tl p{font-size:14px;color:var(--muted);margin-top:6px}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badge{border:1.5px solid var(--ink);border-radius:999px;padding:9px 16px;font-size:14px}
+.beliefs{display:grid;grid-template-columns:1fr 1fr;gap:22px 40px;margin-top:36px}
+.belief{font-family:'Fraunces',serif;font-size:24px;font-weight:400;line-height:1.25;padding:20px 0;border-top:1.5px dashed var(--sand);display:flex;gap:16px}
+.belief svg{width:34px;height:34px;flex:none;margin-top:2px}
+/* evenimente */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 34px}
+.filters button{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:9px 18px;font:inherit;font-weight:600;cursor:pointer}
+.filters button.on{background:var(--ink);color:var(--cream)}
+.month{font-family:'Fraunces',serif;font-style:italic;font-size:26px;margin:30px 0 14px;color:var(--terra)}
+.ev-list{display:grid;gap:0}
+.ev{display:grid;grid-template-columns:90px 200px 1fr auto;gap:22px;align-items:center;padding:20px 0;border-top:1.5px dashed var(--sand)}
+.ev .d b{display:block;font-family:'Fraunces',serif;font-size:44px;font-weight:300;line-height:1}
+.ev .d small{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.05em}
+.ev .ph{aspect-ratio:16/10}
+.ev .m{font-size:14px;color:var(--muted);margin-top:4px}
+.ev .cat{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:15px}
+.ev .r{text-align:right}
+.ev .r .price{display:block;margin-bottom:8px}
+/* contact */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.quick a{padding:24px;border-radius:24px;border:1.5px solid var(--ink);font-family:'Fraunces',serif;font-size:21px;display:flex;justify-content:space-between;align-items:center;box-shadow:5px 5px 0 var(--sand);transition:transform .2s}
+.quick a:hover{transform:translate(-2px,-2px)}
+.quick a svg{width:26px;height:26px}
+.cinfo{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.map{border-radius:40px 40px 8px 40px;background:var(--olive-soft);min-height:380px;display:grid;place-items:center;font-family:'Fraunces',serif;font-style:italic;color:var(--olive);position:relative;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.info dl{display:grid;grid-template-columns:110px 1fr;gap:10px 16px;font-size:15px;margin-top:20px}
+.info dt{font-family:'Fraunces',serif;font-style:italic}
+.info dd{color:var(--muted)}
+/* mobile */
+@media (max-width:900px){
+  nav{display:none}
+  section{padding:56px 0}
+  .hero .grid,.paths,.pillars,.split,.cards,.shop-grid,.testi,.news,.hero-b2b .grid,.stats,.formats,.steps,.pricing,.formwrap,.kids .hero-kids .grid,.progs,.svc,.quiz,.beliefs,.cinfo,footer .cols{grid-template-columns:1fr}
+  .fmt,.fmt.wide{grid-column:span 1;grid-template-columns:1fr}
+  .fmt .ph{aspect-ratio:16/9}
+  .gal{grid-template-columns:1fr 1fr}
+  .safe{grid-template-columns:1fr 1fr}
+  .timeline{grid-template-columns:1fr 1fr;gap:20px}.timeline::before{display:none}
+  .quick{grid-template-columns:1fr 1fr}
+  .news,.quiz,.bundle{padding:32px}
+  .form .two{grid-template-columns:1fr}
+  .svc.flip .ph{order:0}
+  .ev{grid-template-columns:70px 1fr;gap:14px}.ev .ph{display:none}.ev .r{grid-column:span 2;text-align:left;display:flex;justify-content:space-between;align-items:center}.ev .r .price{margin:0}
+  .paths{margin-top:20px}
+  .hero-art .sunburst{width:110px;height:110px;top:-20px;right:-10px}
+  .sched th:nth-child(4),.sched td:nth-child(4){display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.draw path,.draw circle,.draw line,.draw ellipse{stroke-dashoffset:0}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<!-- SVG symbols: line art desenat de mana -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-sun" viewBox="0 0 100 100"><g class="la"><circle cx="50" cy="50" r="17"/><path d="M50 12 v10"/><path d="M50 78 v10"/><path d="M12 50 h10"/><path d="M78 50 h10"/><path d="M23 23 l7 7"/><path d="M70 70 l7 7"/><path d="M77 23 l-7 7"/><path d="M30 70 l-7 7"/></g></symbol>
+  <symbol id="i-leaf" viewBox="0 0 100 100"><g class="la olive"><path d="M18 82 C 20 40, 50 14, 86 16 C 86 52, 60 82, 18 82 Z"/><path d="M22 78 C 40 58, 58 42, 80 22"/><path d="M40 60 c 6 -2 10 -8 12 -14"/><path d="M52 50 c 8 -1 13 -6 16 -12"/></g></symbol>
+  <symbol id="i-spiral" viewBox="0 0 100 100"><g class="la terra"><path d="M50 50 c 2 -6 10 -6 11 1 c 1 9 -12 13 -18 6 c -8 -9 3 -24 16 -20 c 16 5 14 30 -4 33 c -22 4 -34 -24 -16 -38 c 22 -17 51 6 42 32"/></g></symbol>
+  <symbol id="i-stretch" viewBox="0 0 100 100"><g class="la"><circle cx="50" cy="16" r="7"/><path d="M50 24 c 0 14 -2 24 -3 34"/><path d="M47 40 c -10 -4 -18 -12 -22 -22"/><path d="M47 40 c 12 -2 22 -8 30 -18"/><path d="M47 58 c -6 10 -12 18 -20 26"/><path d="M47 58 c 8 6 16 14 24 24"/></g></symbol>
+  <symbol id="i-jump" viewBox="0 0 100 100"><g class="la"><circle cx="52" cy="18" r="7"/><path d="M52 26 c 2 12 0 22 -4 30"/><path d="M50 36 c -8 -8 -14 -14 -22 -16"/><path d="M50 36 c 8 -6 14 -12 22 -20"/><path d="M48 56 c -4 8 -12 12 -20 12"/><path d="M48 56 c 8 6 14 6 22 2"/><path d="M20 84 q 30 -10 60 0"/></g></symbol>
+  <symbol id="i-bowl" viewBox="0 0 100 100"><g class="la"><path d="M16 46 h68 c 0 22 -16 34 -34 34 s -34 -12 -34 -34 z"/><path d="M30 46 c 4 -14 14 -18 22 -12"/><path d="M52 34 c 8 -8 20 -6 24 4"/><path d="M40 44 c 6 -6 14 -6 20 0"/><path d="M36 84 h28"/></g></symbol>
+  <symbol id="i-breath" viewBox="0 0 100 100"><g class="la olive"><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="19" class="breathe"/><circle cx="50" cy="50" r="6"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 100 60"><g class="la"><path d="M6 30 C 30 18, 60 42, 90 28"/><path d="M78 16 l 12 12 l -14 8"/></g></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2 c 1 6 4 9 10 10 c -6 1 -9 4 -10 10 c -1 -6 -4 -9 -10 -10 c 6 -1 9 -4 10 -10 z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 100 100"><g class="la"><path d="M62 14 c -22 6 -32 30 -22 50 c 8 16 26 24 44 18 c -26 -2 -40 -38 -22 -68 z"/><path d="M78 26 l 0 8 m -4 -4 l 8 0"/></g></symbol>
+  <symbol id="i-hand" viewBox="0 0 100 100"><g class="la terra"><path d="M30 60 V 30 c 0 -5 8 -5 8 0 V 50"/><path d="M38 48 V 22 c 0 -5 8 -5 8 0 V 48"/><path d="M46 48 V 26 c 0 -5 8 -5 8 0 V 50"/><path d="M54 50 V 32 c 0 -5 8 -5 8 0 V 58"/><path d="M30 60 c 0 18 10 28 22 28 s 22 -10 22 -28 V 46"/><path d="M30 56 c -8 -10 -14 -4 -8 6 l 8 10"/></g></symbol>
+</svg>
+<header class="site"><div class="wrap">
+  <a class="logo" href="#/"><svg viewBox="0 0 100 100"><use href="#i-sun"/></svg>just move</a>
+  <nav><a href="#/copii">Copii</a><a href="#/adulti">Adulți</a><a href="#/evenimente">Evenimente</a><a href="#/shop">Shop</a><a href="#/corp">Corporate</a><a href="#/scoli">Școli</a></nav>
+  <a class="btn btn-terra btn-sm" href="#/contact">Rezervă</a>
+</div></header>
+<!-- ================= HOME ================= -->
+<div class="screen on" id="s-home">
+<section class="hero"><div class="wrap">
+  <div class="grid">
+    <div>
+      <div class="hand">mișcare, minte și hrană bună</div>
+      <h1><span class="w">Corpul</span> <span class="w">tău</span> <span class="w it">vrea</span> <span class="w">să se joace.</span></h1>
+      <p class="lede">Un studio, un om, patru feluri de a te simți bine. Pentru copii, pentru tine, pentru echipa ta.</p>
+      <a class="btn" href="#">Vino la o ședință <svg viewBox="0 0 100 60"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="hero-art">
+      <div class="ph img blob-a" style="background-image:url(img/hero.jpg)"><span>FOTO</span></div>
+      <svg class="sunburst spin" viewBox="0 0 100 100"><use href="#i-sun"/></svg>
+      <svg class="leaf float draw" viewBox="0 0 100 100"><use href="#i-leaf"/></svg>
+    </div>
+  </div>
+  <div class="paths">
+    <a class="path kids" href="#/copii"><svg viewBox="0 0 100 100"><use href="#i-jump"/></svg><b>Pentru copii</b><small>Jocuri de mișcare, coordonare și calm. 3-14 ani.</small></a>
+    <a class="path" href="#/adulti"><svg viewBox="0 0 100 100"><use href="#i-stretch"/></svg><b>Pentru tine</b><small>Mișcare, meditație și nutriție. La studio sau de acasă.</small></a>
+    <a class="path team" href="#/corp"><svg viewBox="0 0 100 100"><use href="#i-hand"/></svg><b>Pentru echipa ta</b><small>Companii și școli. La voi sau la noi.</small></a>
+  </div>
+</div></section>
+<div class="marquee"><div>
+  <span>mișcare</span><svg><use href="#i-star"/></svg><span>respirație</span><svg><use href="#i-star"/></svg><span>joacă</span><svg><use href="#i-star"/></svg><span>hrană simplă</span><svg><use href="#i-star"/></svg><span>liniște</span><svg><use href="#i-star"/></svg><span>echipă</span><svg><use href="#i-star"/></svg>
+  <span>mișcare</span><svg><use href="#i-star"/></svg><span>respirație</span><svg><use href="#i-star"/></svg><span>joacă</span><svg><use href="#i-star"/></svg><span>hrană simplă</span><svg><use href="#i-star"/></svg><span>liniște</span><svg><use href="#i-star"/></svg><span>echipă</span><svg><use href="#i-star"/></svg>
+</div></div>
+<section><div class="wrap">
+  <h2 class="reveal">Patru lucruri, <span class="it">un singur loc.</span></h2>
+  <div class="pillars">
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-stretch"/></svg><b>Mișcare</b><p>Corpul învață jucându-se. Fără intimidare.</p></div>
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-breath"/></svg><b>Minte</b><p>Respirație, atenție, liniște. Instrumente de luat acasă.</p></div>
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-moon"/></svg><b>Suflet</b><p>Meditații ghidate și cercuri în care ai voie să fii tu.</p></div>
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-bowl"/></svg><b>Hrană</b><p>Nutriție fără diete. Farfurii care țin toată ziua.</p></div>
+  </div>
+</div></section>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0 30 C 240 0, 480 60, 720 30 S 1200 0, 1440 30 V60 H0 Z"/></svg>
+<section style="background:var(--cream-2);padding-top:40px"><div class="wrap split">
+  <div class="ph img tape" style="background-image:url(img/portret.jpg)"><span>FOTO</span></div>
+  <div class="reveal">
+    <p class="quote">"Nu predau exerciții. Îi ajut pe oameni, mari și mici, <span class="it">să se întoarcă în corpul lor</span> și să le placă acolo."</p>
+    <div class="sig"><b>Cătălin</b>fondator Just Move · nutriționist, instructor de mișcare, facilitator de meditație</div>
+    <p style="margin-top:26px"><a class="btn btn-ghost" href="#/despre">Povestea mea</a></p>
+  </div>
+</div></section>
+<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" style="transform:scaleY(-1)"><path d="M0 30 C 240 0, 480 60, 720 30 S 1200 0, 1440 30 V60 H0 Z"/></svg>
+<section><div class="wrap">
+  <div class="rowhead"><h2>Ce <span class="it">urmează.</span></h2><a class="btn btn-ghost btn-sm" href="#/evenimente">Tot calendarul</a></div>
+  <div class="cards">
+    <div class="card reveal"><div class="ph img blob-b" style="background-image:url(img/cercuri.jpg)"><span>FOTO</span></div><span class="date">Sâmbătă, 19 septembrie</span><h3>Sâmbăta mișcării. 6-9 ani</h3><div class="meta"><span>12 locuri</span><span class="price">40 lei</span></div></div>
+    <div class="card reveal"><div class="ph img blob-c" style="background-image:url(img/medit.jpg)"><span>FOTO</span></div><span class="date">Joi, 24 septembrie</span><h3>Respiră. Seară de meditație ghidată</h3><div class="meta"><span>8 locuri</span><span class="price">60 lei</span></div></div>
+    <div class="card reveal"><div class="ph img blob-a" style="background-image:url(img/nutri.jpg)"><span>FOTO</span></div><span class="date">Sâmbătă, 3 octombrie</span><h3>Farfuria simplă. Workshop de nutriție</h3><div class="meta"><span>15 locuri</span><span class="price">120 lei</span></div></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="rowhead"><h2>Începe <span class="it">de acasă.</span></h2><a class="btn btn-ghost btn-sm" href="#/shop">Tot shopul</a></div>
+  <div class="shop-grid">
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/miscare-dimineata.jpg)"></div><div class="type">Video, 20 min</div><h3>Mișcare de dimineață</h3><div class="buy"><span class="price">29 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/meditatia-somn.jpg)"></div><div class="type">Audio, 18 min</div><h3>Meditația pentru somn</h3><div class="buy"><span class="price">19 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/respira-kit-antistres.jpg)"></div><div class="type">Video + audio</div><h3>Respiră și calmează-te</h3><div class="buy"><span class="price">39 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/15-jocuri-acasa.jpg)"></div><div class="type">PDF + video</div><h3>15 jocuri de mișcare acasă</h3><div class="buy"><span class="price">39 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+  </div>
+</div></section>
+<section style="background:var(--cream-2)"><div class="wrap">
+  <h2 style="margin-bottom:44px">Ce spun <span class="it">oamenii.</span></h2>
+  <div class="testi">
+    <div class="t reveal"><p>Fiul meu nu voia la niciun sport. La Just Move a cerut singur să mai vină.</p><div class="who"><div class="ph img" style="background-image:url(img/cercuri.jpg)"></div><div><b>Andreea</b><small>mamă, băiat de 7 ani</small></div></div></div>
+    <div class="t reveal"><p>Am venit pentru mișcare și am plecat cu o rutină de respirație pe care o fac de patru luni.</p><div class="who"><div class="ph img" style="background-image:url(img/functional.jpg)"></div><div><b>Mihai</b><small>grupa de marți</small></div></div></div>
+    <div class="t reveal"><p>Cel mai ușor eveniment de wellbeing pe care l-am organizat. Echipa a ieșit altfel.</p><div class="who"><div class="ph img" style="background-image:url(img/corp.jpg)"></div><div><b>Raluca</b><small>HR Manager</small></div></div></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="gal">
+    <div class="ph img tape" style="background-image:url(img/cercuri.jpg);aspect-ratio:3/4"></div>
+    <div class="ph img blob-a" style="background-image:url(img/medit.jpg);aspect-ratio:1/1"></div>
+    <div class="ph img tape r" style="background-image:url(img/functional.jpg);aspect-ratio:4/5"></div>
+    <div class="ph img arch" style="background-image:url(img/scoala.jpg);aspect-ratio:3/4"></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="news">
+    <svg class="deco spin" viewBox="0 0 100 100"><use href="#i-sun"/></svg>
+    <div><h2>Meditația de 7 minute pentru <span class="it">dimineți grele.</span></h2><p>Audio gratuit, în română, cu vocea lui Cătălin. Îl primești pe email în 30 de secunde.</p></div>
+    <div class="field"><input placeholder="Adresa ta de email"><button class="btn btn-terra">Trimite-mi</button></div>
+  </div>
+</div></section>
+<footer><div class="wrap">
+  <div class="cols">
+    <div><span class="logo"><svg viewBox="0 0 100 100"><use href="#i-sun"/></svg>just move</span><p style="margin-top:12px">Str. Exemplu 12, Cluj-Napoca<br>Luni - Sâmbătă, 08:00 - 21:00<br>0700 000 000 · salut@justmove.ro</p></div>
+    <div><b>Programe</b><a href="#/copii">Copii</a><a href="#/adulti">Adulți</a><a href="#/evenimente">Evenimente</a><a href="#/shop">Shop</a></div>
+    <div><b>Instituții</b><a href="#/corp">Corporate</a><a href="#/scoli">Școli și grădinițe</a><a href="#/contact">Cere o ofertă</a></div>
+    <div><b>Legal</b><a href="#">Termeni</a><a href="#">Confidențialitate</a><a href="#">ANPC</a><a href="#">SOL</a></div>
+  </div>
+  <div>© 2026 Just Move SRL · făcut cu mâinile și cu inima</div>
+</div></footer>
+</div>
+<!-- ================= DESPRE ================= -->
+<div class="screen" id="s-despre">
+<section class="hero"><div class="wrap grid">
+  <div>
+    <div class="hand">salut, sunt Cătălin</div>
+    <h1 style="font-size:clamp(42px,7vw,92px)">Un tip care <span class="it">se joacă</span> cu treaba asta serios.</h1>
+    <p class="lede" style="margin-top:20px">Nutriționist, instructor de mișcare, facilitator de meditație. Și, în cele mai bune zile, un om care se joacă cu copiii.</p>
+  </div>
+  <div class="hero-art"><div class="ph img blob-b" style="background-image:url(img/portret.jpg)"></div><svg class="leaf float draw" viewBox="0 0 100 100"><use href="#i-spiral"/></svg></div>
+</div></section>
+<section><div class="wrap split">
+  <div class="reveal">
+    <h2>Trei <span class="it">acte.</span></h2>
+    <p class="lede" style="margin-top:16px"><b style="color:var(--ink)">De unde am plecat.</b> Zece ani în corporație, un spate care nu mai ținea și o minte care nu se oprea niciodată.</p>
+    <p class="lede" style="margin-top:14px"><b style="color:var(--ink)">Ce m-a schimbat.</b> O oră de joacă cu nepoții mei într-un parc, în care am râs și m-am mișcat mai mult decât într-un an.</p>
+    <p class="lede" style="margin-top:14px"><b style="color:var(--ink)">Ce fac azi.</b> M-am format în nutriție, mișcare funcțională și meditație. Am deschis Just Move ca să le pun pe toate la un loc.</p>
+  </div>
+  <div class="ph img tape r" style="background-image:url(img/nutri.jpg);aspect-ratio:4/3"></div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <h2>Drumul <span class="it">până aici.</span></h2>
+  <div class="timeline">
+    <div class="tl"><i></i><b>2014</b><p>Primul job în corporație. Primele dureri de spate.</p></div>
+    <div class="tl"><i></i><b>2019</b><p>Ziua din parc cu nepoții. Decizia.</p></div>
+    <div class="tl"><i></i><b>2021</b><p>Certificare în nutriție și mișcare funcțională.</p></div>
+    <div class="tl"><i></i><b>2023</b><p>Primele grupe de copii, într-o sală închiriată.</p></div>
+    <div class="tl"><i></i><b>2025</b><p>Se deschide studioul Just Move.</p></div>
+  </div>
+</div></section>
+<section style="background:var(--cream-2)"><div class="wrap">
+  <h2>Ce <span class="it">cred eu.</span></h2>
+  <div class="beliefs">
+    <div class="belief"><svg><use href="#i-stretch"/></svg>Corpul nu se pedepsește. Se joacă.</div>
+    <div class="belief"><svg><use href="#i-bowl"/></svg>Nu există dietă bună dacă nu o poți ține și în luna a șasea.</div>
+    <div class="belief"><svg><use href="#i-breath"/></svg>Trei minute de liniște pe zi schimbă mai mult decât o oră pe lună.</div>
+    <div class="belief"><svg><use href="#i-jump"/></svg>Copiii nu au nevoie de sport. Au nevoie de mișcare care le place.</div>
+    <div class="belief"><svg><use href="#i-hand"/></svg>O echipă care râde împreună lucrează mai bine împreună.</div>
+    <div class="belief"><svg><use href="#i-spiral"/></svg>Nu vin cu răspunsuri. Vin cu instrumente.</div>
+  </div>
+</div></section>
+<section><div class="wrap split">
+  <div class="ph img arch" style="background-image:url(img/hero.jpg);aspect-ratio:4/5"></div>
+  <div>
+    <h2>Formări și <span class="it">certificări.</span></h2>
+    <div class="badges"><span class="badge">Tehnician nutriționist</span><span class="badge">Instructor mișcare funcțională</span><span class="badge">Facilitator meditație</span><span class="badge">Prim ajutor pediatric</span><span class="badge">Formator autorizat</span></div>
+    <p style="margin-top:26px"><a class="btn btn-terra" href="#/contact">Hai să ne cunoaștem</a></p>
+  </div>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<!-- ================= COPII ================= -->
+<div class="screen kids" id="s-copii">
+<section class="hero-kids">
+  <div class="confetti"><i style="top:12%;left:8%"></i><i style="top:30%;left:46%;animation-delay:-2s"></i><i style="top:70%;left:12%;animation-delay:-4s"></i><i style="top:18%;left:88%;animation-delay:-1s"></i><i style="top:82%;left:60%;animation-delay:-3s"></i></div>
+  <div class="wrap grid">
+    <div>
+      <div class="hand" style="color:var(--terra)">3-14 ani, grupe mici</div>
+      <h1>Aici copiii <span class="it">se joacă.</span> Și învață să fie bine.</h1>
+      <p class="lede">Jocuri de mișcare, coordonare, respirație și echipă. Fără competiție, cu multă joacă.</p>
+      <a class="btn btn-terra" href="#proba">Ședință de probă gratuită</a>
+    </div>
+    <div class="hero-art">
+      <div class="ph img tape" style="background-image:url(img/cercuri.jpg)"></div>
+      <svg class="sunburst float" viewBox="0 0 100 100"><use href="#i-jump"/></svg>
+    </div>
+  </div>
+</section>
+<section><div class="wrap">
+  <h2 style="margin-bottom:22px">Ce facem la <span class="it">o ședință.</span></h2>
+  <div class="ages"><button class="on">3-5 ani</button><button>6-9 ani</button><button>10-14 ani</button></div>
+  <div class="pillars" style="margin-top:20px">
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-sun"/></svg><b>Ne încălzim</b><p>Prinselea, statui, animale. Corpul se trezește fără să știe că face sport.</p></div>
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-jump"/></svg><b>Coordonare</b><p>Echilibru, sărituri, aruncări. Trasee noi în fiecare săptămână.</p></div>
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-hand"/></svg><b>Echipă</b><p>Jocuri în care câștigă doar dacă se ajută. Nimeni nu iese ultimul.</p></div>
+    <div class="pillar reveal"><svg class="draw" viewBox="0 0 100 100"><use href="#i-breath"/></svg><b>Ne liniștim</b><p>3 minute de respirație la final. Pleacă calmi, nu agitați.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <h2 style="margin-bottom:24px">Programul <span class="it">săptămânal.</span></h2>
+  <table class="sched">
+    <tr><th>Ziua</th><th>Ora</th><th>Grupa</th><th>Locuri</th></tr>
+    <tr><td>Luni</td><td>17:00</td><td>3-5 ani<small>45 min</small></td><td>4 libere</td></tr>
+    <tr><td>Marți</td><td>17:30</td><td>6-9 ani<small>50 min</small></td><td>2 libere</td></tr>
+    <tr><td>Miercuri</td><td>18:00</td><td>10-14 ani<small>60 min</small></td><td>6 libere</td></tr>
+    <tr><td>Joi</td><td>17:00</td><td>3-5 ani<small>45 min</small></td><td>Plin</td></tr>
+    <tr><td>Sâmbătă</td><td>10:00</td><td>6-9 ani<small>50 min</small></td><td>5 libere</td></tr>
+  </table>
+</div></section>
+<section><div class="wrap">
+  <h2 style="margin-bottom:28px">Cât <span class="it">costă.</span></h2>
+  <div class="pricing">
+    <div class="plan"><div class="from">Ședință de probă</div><div class="p">Gratuit</div><ul><li>Una singură, orice grupă</li><li>Părintele poate asista</li></ul><a class="btn btn-ghost" href="#proba">Rezervă proba</a></div>
+    <div class="plan hot"><div class="from">Abonament lunar</div><div class="p">240 lei</div><ul><li>8 ședințe pe lună</li><li>Ședințele ratate se recuperează</li><li>Acces la Sâmbăta mișcării</li></ul><a class="btn" href="#">Alege abonamentul</a></div>
+    <div class="plan"><div class="from">Ședință individuală</div><div class="p">40 lei</div><ul><li>Când vrei, dacă sunt locuri</li><li>Bună pentru început</li></ul><a class="btn btn-ghost" href="#">Rezervă</a></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap split">
+  <div class="ph img blob-c" style="background-image:url(img/scoala.jpg)"></div>
+  <div>
+    <h2>Tabere de <span class="it">vacanță.</span></h2>
+    <p class="lede" style="margin:14px 0 22px">5 zile, 09:00 - 16:00, în vacanțele școlare. Mișcare dimineața, ateliere după prânz, o gustare bună la mijloc. Următoarea: 26 - 30 octombrie.</p>
+    <a class="btn btn-sun" href="#">Vezi tabăra de toamnă</a>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <h2 style="margin-bottom:24px">Părinții <span class="it">întreabă.</span></h2>
+  <div class="faq">
+    <details><summary>Copilul meu nu e sportiv. E ok?</summary><p>Perfect. Nu e sport, e joacă structurată. Majoritatea copiilor de la noi nu fac alt sport.</p></details>
+    <details><summary>Ce trebuie să aducă?</summary><p>Haine comode, o sticlă de apă. Suntem în șosete sau desculți, pe saltele.</p></details>
+    <details><summary>Pot să stau să mă uit?</summary><p>La proba gratuită, da. După aceea copiii lucrează mai bine fără public.</p></details>
+    <details><summary>Câți copii sunt într-o grupă?</summary><p>Maximum 12. Cătălin îi vede pe toți.</p></details>
+  </div>
+</div></section>
+<section id="proba" style="background:var(--cream-2)"><div class="wrap formwrap">
+  <div><h2>Rezervă <span class="it">proba.</span></h2><p class="lede" style="margin-top:14px">Gratuit, fără obligații. Te sun eu să confirmăm ziua.</p>
+    <p style="margin-top:30px;font-size:14px">Ești școală sau grădiniță? <a href="#/scoli" style="text-decoration:underline">Vezi programele pentru instituții.</a></p></div>
+  <form class="form" action="https://formspree.io/f/FORM_ID_AICI" method="POST">
+    <div class="two"><div><label>Numele tău</label><input></div><div><label>Telefon</label><input placeholder="07..."></div></div>
+    <div class="two"><div><label>Prenumele copilului</label><input></div><div><label>Vârsta</label><select><option>3-5 ani</option><option>6-9 ani</option><option>10-14 ani</option></select></div></div>
+    <div><label>Ziua preferată</label><div class="chips"><span class="chip on">Luni</span><span class="chip">Marți</span><span class="chip">Miercuri</span><span class="chip">Joi</span><span class="chip">Sâmbătă</span></div></div>
+    <button class="btn btn-terra">Rezervă proba</button>
+  </form>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<!-- ================= ADULTI ================= -->
+<div class="screen" id="s-adulti">
+<section class="hero"><div class="wrap grid">
+  <div>
+    <div class="hand">pentru adulți care nu au timp de fitness-uri complicate</div>
+    <h1 style="font-size:clamp(42px,7vw,92px)">Corpul tău. Mintea ta. <span class="it">Ritmul tău.</span></h1>
+    <p class="lede" style="margin-top:20px">Mișcare, meditație și nutriție. La studio, în grup mic, sau de acasă.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:26px"><a class="btn btn-ghost btn-sm" href="#miscare">Mișcare</a><a class="btn btn-ghost btn-sm" href="#minte">Minte</a><a class="btn btn-ghost btn-sm" href="#nutritie">Nutriție</a></div>
+  </div>
+  <div class="hero-art"><div class="ph img blob-a" style="background-image:url(img/functional.jpg)"></div><svg class="sunburst float draw" viewBox="0 0 100 100"><use href="#i-breath"/></svg></div>
+</div></section>
+<section style="padding:0"><div class="wrap">
+  <div class="svc" id="miscare">
+    <div class="ph img blob-b" style="background-image:url(img/functional.jpg)"></div>
+    <div class="reveal"><h2>Mișcare.</h2><p class="lede" style="margin-top:12px">Grupuri de maximum 8. Funcțional, mobilitate, echilibru. Vii cum ești, pleci mai ușor.</p>
+      <ul><li>Marți și joi, 19:30, 60 min</li><li>Fără echipament de adus</li><li>Niveluri amestecate, ritm personal</li></ul>
+      <div class="pr">30 lei ședința · 200 lei pe lună</div><a class="btn" href="#">Rezervă o ședință</a></div>
+  </div>
+  <div class="svc flip" id="minte">
+    <div class="ph img blob-c" style="background-image:url(img/medit.jpg)"></div>
+    <div class="reveal"><h2>Minte.</h2><p class="lede" style="margin-top:12px">Meditații ghidate pentru oameni care nu pot sta locului. Fără cristale, fără presiune.</p>
+      <ul><li>Seri de meditație, joi 19:00, 75 min</li><li>Cercuri lunare de 10 persoane</li><li>Workshop-uri de o zi, o dată pe lună</li></ul>
+      <div class="pr">60 lei seara · 150 lei workshop-ul</div><a class="btn" href="#/evenimente">Vezi calendarul</a></div>
+  </div>
+  <div class="svc" id="nutritie">
+    <div class="ph img tape" style="background-image:url(img/nutri.jpg)"></div>
+    <div class="reveal"><h2>Nutriție.</h2><p class="lede" style="margin-top:12px">Consiliere 1:1 fără diete de 7 zile. Un fel de a mânca pe care îl poți ține și în luna a șasea.</p>
+      <ul><li>Prima ședință 90 min, apoi 45 min</li><li>Plan scris, ajustat la fiecare întâlnire</li><li>La studio sau online</li></ul>
+      <div class="pr">250 lei prima · 150 lei următoarele</div><a class="btn" href="#">Programează</a></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="quiz">
+    <svg class="deco spin" style="right:-40px;bottom:-60px;width:260px;opacity:.15" viewBox="0 0 100 100"><use href="#i-spiral"/></svg>
+    <div><h2>Nu știi de unde <span class="it">să începi?</span></h2><p>5 întrebări, un minut. Îți spun cu ce ai cel mai mult sens să pornești și îți dau un produs gratuit pentru asta.</p></div>
+    <div class="qcard"><div class="qn">întrebarea 1 din 5</div><h3>Ce te obosește cel mai tare în ultima vreme?</h3>
+      <span class="opt on">Corpul. Mă doare spatele, stau prea mult.</span><span class="opt">Capul. Nu mă pot opri din gânduri.</span><span class="opt">Energia. Mănânc pe fugă și pic după prânz.</span><span class="opt">Toate trei.</span>
+      <div class="bar"><i></i></div></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="rowhead"><h2>Începe <span class="it">de acasă.</span></h2><a class="btn btn-ghost btn-sm" href="#/shop">Tot shopul</a></div>
+  <div class="shop-grid">
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/miscare-dimineata.jpg)"></div><div class="type">Video, 20 min</div><h3>Mișcare de dimineață</h3><div class="buy"><span class="price">29 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/meditatia-somn.jpg)"></div><div class="type">Audio, 18 min</div><h3>Meditația pentru somn</h3><div class="buy"><span class="price">19 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/mobilitate-birou.jpg)"></div><div class="type">Video, 45 min</div><h3>Mobilitate pentru cei de la birou</h3><div class="buy"><span class="price">49 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/farfuria-simpla.jpg)"></div><div class="type">PDF, 32 pagini</div><h3>Farfuria simplă</h3><div class="buy"><span class="price">29 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+  </div>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<!-- ================= EVENIMENTE ================= -->
+<div class="screen" id="s-evenimente">
+<section class="hero" style="padding-bottom:20px"><div class="wrap">
+  <div class="hand">calendarul studioului</div>
+  <h1 style="font-size:clamp(42px,7vw,92px)">Ce <span class="it">urmează.</span></h1>
+  <p class="lede" style="margin-top:14px">Rezervi online, primești confirmarea și evenimentul în calendar.</p>
+  <div class="filters"><button class="on">Toate</button><button>Copii</button><button>Adulți</button><button>Online</button></div>
+  <div class="month">septembrie</div>
+  <div class="ev-list">
+    <div class="ev"><div class="d"><b>19</b><small>SÂM</small></div><div class="ph img blob-a" style="background-image:url(img/cercuri.jpg)"></div><div><span class="cat">Copii</span><h3>Sâmbăta mișcării. 6-9 ani</h3><div class="m">10:00 - 10:50 · Studio · 12 locuri</div></div><div class="r"><span class="price">40 lei</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+    <div class="ev"><div class="d"><b>24</b><small>JOI</small></div><div class="ph img blob-a" style="background-image:url(img/medit.jpg)"></div><div><span class="cat">Adulți</span><h3>Respiră. Seară de meditație ghidată</h3><div class="m">19:00 - 20:15 · Studio · 8 locuri</div></div><div class="r"><span class="price">60 lei</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+    <div class="ev"><div class="d"><b>27</b><small>SÂM</small></div><div class="ph img blob-a" style="background-image:url(img/functional.jpg)"></div><div><span class="cat">Adulți</span><h3>Mobilitate pentru cei de la birou</h3><div class="m">11:00 - 12:30 · Studio · 6 locuri</div></div><div class="r"><span class="price">80 lei</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+  </div>
+  <div class="month">octombrie</div>
+  <div class="ev-list">
+    <div class="ev"><div class="d"><b>3</b><small>SÂM</small></div><div class="ph img blob-a" style="background-image:url(img/nutri.jpg)"></div><div><span class="cat">Adulți</span><h3>Farfuria simplă. Workshop de nutriție</h3><div class="m">11:00 - 14:00 · Studio · 15 locuri</div></div><div class="r"><span class="price">120 lei</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+    <div class="ev"><div class="d"><b>8</b><small>JOI</small></div><div class="ph img blob-a" style="background-image:url(img/medit.jpg)"></div><div><span class="cat">Online</span><h3>Respiră. Meditație ghidată live</h3><div class="m">20:00 - 20:45 · Zoom</div></div><div class="r"><span class="price">30 lei</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+    <div class="ev"><div class="d"><b>17</b><small>SÂM</small></div><div class="ph img blob-a" style="background-image:url(img/hero.jpg)"></div><div><span class="cat">Copii + părinți</span><h3>Family Day</h3><div class="m">10:00 - 13:00 · Studio · 10 familii</div></div><div class="r"><span class="price">150 lei / familie</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+    <div class="ev"><div class="d"><b>26</b><small>LUN</small></div><div class="ph img blob-a" style="background-image:url(img/scoala.jpg)"></div><div><span class="cat">Copii</span><h3>Tabăra de toamnă. 5 zile</h3><div class="m">26 - 30 oct · 09:00 - 16:00 · 16 locuri</div></div><div class="r"><span class="price">650 lei</span><a class="btn btn-sm" href="#/contact">Rezervă</a></div></div>
+  </div>
+</div></section>
+<section style="background:var(--cream-2)"><div class="wrap">
+  <div class="rowhead"><h2>Cum <span class="it">a fost.</span></h2></div>
+  <div class="cards">
+    <div class="card"><div class="ph img tape" style="background-image:url(img/corp.jpg)"></div><span class="date">august</span><h3>Energy Break la o companie de software</h3></div>
+    <div class="card"><div class="ph img blob-a" style="background-image:url(img/medit.jpg)"></div><span class="date">iulie</span><h3>Cercul de vară. 12 oameni, o seară</h3></div>
+    <div class="card"><div class="ph img tape r" style="background-image:url(img/scoala.jpg)"></div><span class="date">iunie</span><h3>Ziua Just Move la o școală din oraș</h3></div>
+  </div>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<!-- ================= CORPORATE ================= -->
+<div class="screen" id="s-corp">
+<section class="hero-b2b"><div class="wrap grid">
+  <div>
+    <div class="hand" style="color:var(--sand)">wellbeing pentru echipe</div>
+    <h1>Echipe cu mai multă energie și <span class="it">mai puțin stres.</span></h1>
+    <p class="lede">Workshop-uri de mișcare, focus și echilibru. Live, la voi la birou sau la studio. Un singur trainer, patru formate.</p>
+    <a class="btn btn-terra" href="#oferta">Cere o ofertă</a> <a class="btn btn-cream" href="#" style="margin-left:6px">Prezentarea PDF</a>
+  </div>
+  <div class="hero-art"><div class="ph img arch" style="background-image:url(img/corp.jpg)"></div><svg class="sunburst float draw" viewBox="0 0 100 100"><use href="#i-hand"/></svg></div>
+</div></section>
+<div class="trust"><div class="wrap"><span>Au lucrat cu noi</span><div class="logos"><span>LOGO 1</span><span>LOGO 2</span><span>LOGO 3</span><span>LOGO 4</span><span>LOGO 5</span></div></div></div>
+<section><div class="wrap">
+  <h2 style="margin-bottom:34px">Problema <span class="it">e reală.</span></h2>
+  <div class="stats">
+    <div class="stat reveal"><b>77%</b><p>dintre angajații activi spun că stresul de la muncă îi afectează puternic.</p></div>
+    <div class="stat reveal"><b>80%</b><p>dintre manageri se așteaptă ca burnout-ul să le lovească echipa anul acesta.</p></div>
+    <div class="stat reveal"><b>48%</b><p>dintre companiile din România au deja un program de wellbeing. Restul rămân în urmă.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <h2 style="margin-bottom:34px">Patru formate. <span class="it">Alegi ce doare.</span></h2>
+  <div class="formats">
+    <div class="fmt reveal"><div class="ph img blob-a" style="background-image:url(img/corp.jpg)"></div><div><div class="dur">45 min, la birou</div><h3>Energy Break</h3><p>Mișcare fără echipament, în haine de birou. Echipa revine cu cap limpede.</p></div></div>
+    <div class="fmt reveal"><div class="ph img blob-b" style="background-image:url(img/medit.jpg)"></div><div><div class="dur">60 min, birou sau studio</div><h3>Focus & Calm</h3><p>Respirație și meditație aplicată la muncă. Instrumente de 3 minute.</p></div></div>
+    <div class="fmt reveal"><div class="ph img blob-c" style="background-image:url(img/nutri.jpg)"></div><div><div class="dur">60 min, la birou</div><h3>Fuel Right</h3><p>Nutriție pentru oameni ocupați. Ce mănânci ca să nu pici la 15:00.</p></div></div>
+    <div class="fmt reveal"><div class="ph img blob-a" style="background-image:url(img/functional.jpg)"></div><div><div class="dur">Jumătate de zi</div><h3>Team Move Day</h3><p>Jocuri de echipă în stilul celor cu copiii. Râd, transpiră, se conectează.</p></div></div>
+    <div class="fmt wide reveal"><div class="ph img tape" style="background-image:url(img/hero.jpg)"></div><div><div class="dur">O zi, weekend. Doar la Just Move.</div><h3>Family Day</h3><p>Angajații vin cu copiii. Mișcare, joacă și un prânz simplu. Singurul eveniment corporate din România pe care copiii îl cer înapoi.</p></div></div>
+  </div>
+</div></section>
+<section style="background:var(--cream-2)"><div class="wrap">
+  <h2 style="margin-bottom:24px">Cum <span class="it">funcționează.</span></h2>
+  <div class="steps">
+    <div class="step"><div class="n">unu</div><h3>Discutăm nevoia</h3><p>Un call de 15 minute. Îmi spui ce doare în echipă.</p></div>
+    <div class="step"><div class="n">doi</div><h3>Primești oferta în 24 h</h3><p>Un link personalizat cu formatele, datele și prețul. Accepți dintr-un click.</p></div>
+    <div class="step"><div class="n">trei</div><h3>Livrăm</h3><p>La birou, la studio sau online. Factură, materiale, follow-up.</p></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <h2 style="margin-bottom:30px">Prețuri <span class="it">orientative.</span></h2>
+  <div class="pricing">
+    <div class="plan"><div class="from">o sesiune</div><div class="p">de la 1.500 lei</div><ul><li>Un format, 45-60 min</li><li>Până la 25 de participanți</li><li>Materiale pentru participanți</li></ul><a class="btn btn-ghost" href="#oferta">Cere ofertă</a></div>
+    <div class="plan hot"><div class="from">pachet trimestrial</div><div class="p">de la 4.500 lei</div><ul><li>4 sesiuni, formate la alegere</li><li>Până la 40 de participanți</li><li>Chestionar înainte și după</li><li>Raport pentru HR</li></ul><a class="btn btn-cream" href="#oferta">Cere ofertă</a></div>
+    <div class="plan"><div class="from">Team Move Day / Family Day</div><div class="p">de la 6.000 lei</div><ul><li>Jumătate de zi sau o zi</li><li>Studio sau locația voastră</li><li>Foto și video</li></ul><a class="btn btn-ghost" href="#oferta">Cere ofertă</a></div>
+  </div>
+</div></section>
+<section id="oferta" style="background:var(--cream-2)"><div class="wrap formwrap">
+  <div><h2>Cere <span class="it">o ofertă.</span></h2><p class="lede" style="margin-top:14px">Răspund personal în maximum 24 de ore, cu un link de ofertă pe care îl poți accepta direct.</p>
+    <p style="margin-top:26px"><a class="btn btn-ghost" href="#">Sau programează un call de 15 min</a></p>
+    <div class="faq" style="margin-top:40px">
+      <details><summary>Câți participanți pot fi?</summary><p>De la 8 la 40 într-o sesiune. Pentru mai mulți, facem grupe.</p></details>
+      <details><summary>Ce spațiu ne trebuie?</summary><p>O sală de ședințe eliberată sau un open space. Fără echipament.</p></details>
+      <details><summary>Veniți și în alte orașe?</summary><p>Da. Deplasarea se adaugă la ofertă.</p></details>
+    </div></div>
+  <form class="form" action="https://formspree.io/f/FORM_ID_AICI" method="POST">
+    <div class="two"><div><label>Nume</label><input></div><div><label>Companie</label><input></div></div>
+    <div class="two"><div><label>Email</label><input></div><div><label>Telefon</label><input></div></div>
+    <div class="two"><div><label>Număr angajați</label><select><option>10-25</option><option>25-50</option><option>50-100</option><option>100+</option></select></div><div><label>Oraș</label><input></div></div>
+    <div><label>Ce vă interesează?</label><div class="chips"><span class="chip on">Energy Break</span><span class="chip">Focus & Calm</span><span class="chip">Fuel Right</span><span class="chip">Team Move Day</span><span class="chip">Family Day</span></div></div>
+    <div><label>Mesaj</label><textarea placeholder="Ce doare în echipă? Când ați vrea?"></textarea></div>
+    <button class="btn btn-terra">Trimite cererea</button>
+  </form>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL · WhatsApp: 0700 000 000</div></div></footer>
+</div>
+<!-- ================= SCOLI ================= -->
+<div class="screen kids" id="s-scoli">
+<section class="hero-kids">
+  <div class="confetti"><i style="top:16%;left:6%"></i><i style="top:60%;left:40%;animation-delay:-2s"></i><i style="top:75%;left:10%;animation-delay:-4s"></i><i style="top:10%;left:80%;animation-delay:-1s"></i><i style="top:85%;left:70%;animation-delay:-3s"></i></div>
+  <div class="wrap grid">
+    <div>
+      <div class="hand" style="color:var(--terra)">pentru școli și grădinițe</div>
+      <h1>Copii care se mișcă, gândesc și <span class="it">se simt bine.</span></h1>
+      <p class="lede">Activități extracurriculare aduse direct la școala sau grădinița voastră.</p>
+      <a class="btn btn-terra" href="#oferta-sc">Cere o ofertă pentru școala ta</a>
+    </div>
+    <div class="hero-art"><div class="ph img tape r" style="background-image:url(img/scoala.jpg)"></div><svg class="sunburst spin" viewBox="0 0 100 100"><use href="#i-sun"/></svg></div>
+  </div>
+</section>
+<section><div class="wrap">
+  <h2 style="margin-bottom:28px">De ce <span class="it">contează.</span></h2>
+  <div class="stats">
+    <div class="stat"><b>+20%</b><p>atenție la ore după 20 de minute de mișcare, conform studiilor pe copii de școală primară.</p></div>
+    <div class="stat"><b>1 din 3</b><p>copii din România nu face mișcare suficientă zilnic.</p></div>
+    <div class="stat"><b>3 min</b><p>de respirație ghidată reduc agitația din clasă mai repede decât orice observație.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <h2 style="margin-bottom:22px">Programele.</h2>
+  <div class="ages"><button class="on">Grădiniță</button><button>Clasele 0-4</button><button>Clasele 5-8</button></div>
+  <div class="progs">
+    <div class="prog reveal"><div class="ph img" style="background-image:url(img/scoala.jpg)"></div><div class="dur">45-50 min, săptămânal</div><h3>Ora de Mișcare</h3><p>În orar sau after-school. Jocuri de coordonare, echilibru, echipă.</p></div>
+    <div class="prog reveal"><div class="ph img" style="background-image:url(img/medit.jpg)"></div><div class="dur">30 min, săptămânal</div><h3>Calm în Clasă</h3><p>Respirație și mini-meditații. Învățătoarea primește și ea instrumentele.</p></div>
+    <div class="prog reveal"><div class="ph img" style="background-image:url(img/cercuri.jpg)"></div><div class="dur">O zi pe semestru</div><h3>Ziua Just Move</h3><p>Toată școala în mișcare. Stații de joacă, echipe mixte.</p></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <h2 style="margin-bottom:28px">Siguranță și <span class="it">logistică.</span></h2>
+  <div class="safe">
+    <div><b>Certificat</b><p>Instructor de mișcare și nutriționist, cu formare în lucrul cu copii.</p></div>
+    <div><b>Asigurat</b><p>Răspundere civilă pentru activități cu minori.</p></div>
+    <div><b>Grupe mici</b><p>Maximum 20 de copii, cu un adult din școală prezent.</p></div>
+    <div><b>Fără echipament</b><p>Sala de sport sau o clasă cu băncile la o parte.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap split">
+  <div>
+    <h2>Cum <span class="it">se plătește.</span></h2>
+    <div class="faq" style="margin-top:22px">
+      <details open><summary>Prin școală</summary><p>Contract cu școala, factură lunară. De la 20 lei per copil per ședință.</p></details>
+      <details><summary>Prin asociația de părinți</summary><p>Asociația colectează și ne plătește. Trimitem scrisoarea către părinți gata făcută.</p></details>
+      <details><summary>Direct de părinți</summary><p>Fiecare părinte plătește online. Școala oferă doar spațiul.</p></details>
+    </div>
+    <p style="margin-top:26px"><a class="btn btn-ghost btn-sm" href="#">Descarcă scrisoarea către părinți (PDF)</a></p>
+  </div>
+  <div class="ph img blob-a" style="background-image:url(img/cercuri.jpg)"></div>
+</div></section>
+<section id="oferta-sc" style="background:var(--cream-2)"><div class="wrap formwrap">
+  <div><h2>Cere o ofertă pentru <span class="it">instituția ta.</span></h2><p class="lede" style="margin-top:14px">Răspund în 24 de ore cu un program propus și un preț clar.</p>
+    <div class="t" style="margin-top:40px"><p>Cea mai liniștită oră de după Just Move. Copiii vin de la mișcare și se așază singuri.</p><div class="who"><div class="ph img" style="background-image:url(img/scoala.jpg)"></div><div><b>Doamna Popescu</b><small>învățătoare, clasa a II-a</small></div></div></div></div>
+  <form class="form" action="https://formspree.io/f/FORM_ID_AICI" method="POST">
+    <div class="two"><div><label>Instituția</label><input></div><div><label>Tip</label><select><option>Școală</option><option>Grădiniță</option><option>After-school</option></select></div></div>
+    <div class="two"><div><label>Persoană de contact</label><input></div><div><label>Funcție</label><input></div></div>
+    <div class="two"><div><label>Email</label><input></div><div><label>Telefon</label><input></div></div>
+    <div class="two"><div><label>Oraș</label><input></div><div><label>Copii estimat</label><input></div></div>
+    <div><label>Program dorit</label><div class="chips"><span class="chip on">Ora de Mișcare</span><span class="chip">Calm în Clasă</span><span class="chip">Ziua Just Move</span><span class="chip">Workshop profesori</span></div></div>
+    <button class="btn btn-terra">Trimite cererea</button>
+  </form>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<!-- ================= SHOP ================= -->
+<div class="screen" id="s-shop">
+<section class="hero" style="padding-bottom:20px"><div class="wrap">
+  <div class="hand">produse digitale</div>
+  <h1 style="font-size:clamp(42px,7vw,92px)">Ia-l pe Cătălin <span class="it">acasă.</span></h1>
+  <p class="lede" style="margin-top:14px">Plătești o dată, ai acces oricând, de pe orice ecran.</p>
+  <div class="filters"><button class="on">Toate</button><button>Video-workshop-uri</button><button>Meditații audio</button><button>Ghiduri PDF</button><button>Pentru părinți</button></div>
+  <div class="shop-grid">
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/miscare-dimineata.jpg)"></div><div class="type">Video, 20 min</div><h3>Mișcare de dimineață</h3><div class="buy"><span class="price">29 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/meditatia-somn.jpg)"></div><div class="type">Audio, 18 min</div><h3>Meditația pentru somn</h3><div class="buy"><span class="price">19 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/respira-kit-antistres.jpg)"></div><div class="type">Video 30 min + audio</div><h3>Respiră și calmează-te</h3><div class="buy"><span class="price">39 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/15-jocuri-acasa.jpg)"></div><div class="type">PDF + video</div><h3>15 jocuri de mișcare acasă</h3><div class="buy"><span class="price">39 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/mobilitate-birou.jpg)"></div><div class="type">Video, 45 min</div><h3>Mobilitate pentru cei de la birou</h3><div class="buy"><span class="price">49 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/farfuria-simpla.jpg)"></div><div class="type">PDF, 32 pagini</div><h3>Farfuria simplă</h3><div class="buy"><span class="price">29 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/minte-corp-suflet.jpg)"></div><div class="type">Video, 60 min</div><h3>Minte, corp, suflet. Introducere</h3><div class="buy"><span class="price">79 lei</span><a class="btn btn-ghost btn-sm" href="#">Cumpără</a></div></div>
+    <div class="prod reveal"><div class="ph img" style="background-image:url(img/meditatia-dimineata-gratuit.jpg)"></div><div class="type">Audio, 7 min</div><h3>Meditația de dimineață</h3><div class="buy"><span class="price">Gratuit</span><a class="btn btn-ghost btn-sm" href="#">Ia-o</a></div></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <div class="news" style="background:var(--terra)">
+    <svg class="deco float" viewBox="0 0 100 100" style="width:180px"><use href="#i-spiral"/></svg>
+    <div><h2>Pachetul <span class="it">Start.</span></h2><p>Alegi 3 produse la orice preț, plătești 89 lei. Cel mai simplu mod să vezi cum lucrează Cătălin.</p></div>
+    <div><a class="btn btn-cream" href="#">Compune pachetul</a></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="steps">
+    <div class="step"><div class="n">unu</div><h3>Plătești cu cardul</h3><p>Sigur, în 30 de secunde. Factura vine pe email.</p></div>
+    <div class="step"><div class="n">doi</div><h3>Primești link de acces</h3><p>Fără parolă. Intri cu emailul, de pe telefon sau laptop.</p></div>
+    <div class="step"><div class="n">trei</div><h3>Nu-ți place? Banii înapoi</h3><p>7 zile, fără întrebări.</p></div>
+  </div>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<!-- ================= CONTACT ================= -->
+<div class="screen" id="s-contact">
+<section class="hero" style="padding-bottom:20px"><div class="wrap">
+  <div class="hand">scrie, sună, vino</div>
+  <h1 style="font-size:clamp(42px,7vw,92px)">Vorbim?</h1>
+  <p class="lede" style="margin-top:14px">Spune-mi cine ești și te duc direct unde trebuie.</p>
+  <div class="quick">
+    <a href="#/copii">Sunt părinte<svg><use href="#i-jump"/></svg></a>
+    <a href="#/evenimente">Vreau un workshop<svg><use href="#i-stretch"/></svg></a>
+    <a href="#/corp">Sunt companie<svg><use href="#i-hand"/></svg></a>
+    <a href="#/scoli">Sunt școală<svg><use href="#i-sun"/></svg></a>
+  </div>
+</div></section>
+<section><div class="wrap cinfo">
+  <div class="map"><svg viewBox="0 0 400 300" preserveAspectRatio="none"><g class="la olive" style="stroke-width:1.2"><path d="M0 80 C 80 60, 160 110, 240 90 S 360 60, 400 80"/><path d="M0 170 C 100 150, 180 200, 260 180 S 380 160, 400 180"/><path d="M60 0 C 70 80, 50 160, 80 300"/><path d="M200 0 C 190 100, 220 200, 210 300"/><path d="M320 0 C 330 100, 300 200, 330 300"/></g></svg><span>hartă Google Maps (embed)</span></div>
+  <div class="info">
+    <h2>Studioul.</h2>
+    <dl>
+      <dt>adresă</dt><dd>Str. Exemplu 12, Cluj-Napoca</dd>
+      <dt>program</dt><dd>Luni - Vineri 08:00 - 21:00<br>Sâmbătă 09:00 - 14:00</dd>
+      <dt>telefon</dt><dd>0700 000 000</dd>
+      <dt>whatsapp</dt><dd>0700 000 000</dd>
+      <dt>email</dt><dd>salut@justmove.ro</dd>
+      <dt>parcare</dt><dd>În curte, 6 locuri.</dd>
+    </dl>
+    <p style="margin-top:26px"><a class="btn btn-terra" href="#">Scrie pe WhatsApp</a> <a class="btn btn-ghost" href="#">Sună</a></p>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="gal">
+    <div class="ph img tape" style="background-image:url(img/hero.jpg);aspect-ratio:4/5"></div>
+    <div class="ph img blob-b" style="background-image:url(img/medit.jpg);aspect-ratio:1/1"></div>
+    <div class="ph img arch" style="background-image:url(img/nutri.jpg);aspect-ratio:3/4"></div>
+    <div class="ph img tape r" style="background-image:url(img/functional.jpg);aspect-ratio:4/5"></div>
+  </div>
+</div></section>
+<section style="background:var(--cream-2)"><div class="wrap formwrap">
+  <div><h2>Sau scrie-mi <span class="it">aici.</span></h2><p class="lede" style="margin-top:14px">Răspund eu, nu un robot. De obicei în aceeași zi.</p></div>
+  <form class="form" action="https://formspree.io/f/FORM_ID_AICI" method="POST">
+    <div class="two"><div><label>Nume</label><input></div><div><label>Email sau telefon</label><input></div></div>
+    <div><label>Despre ce e vorba?</label><div class="chips"><span class="chip on">Copilul meu</span><span class="chip">Eu</span><span class="chip">Compania mea</span><span class="chip">Școala mea</span></div></div>
+    <div><label>Mesaj</label><textarea></textarea></div>
+    <button class="btn">Trimite</button>
+  </form>
+</div></section>
+<footer><div class="wrap"><div>© 2026 Just Move SRL</div></div></footer>
+</div>
+<script>
+const routes=['home','despre','copii','adulti','evenimente','corp','scoli','shop','contact'];
+function route(){
+  const h=location.hash;
+  if(h && !h.startsWith('#/')) return;
+  let r=h.slice(2)||'home'; if(!routes.includes(r)) r='home';
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
+  document.getElementById('s-'+r).classList.add('on');
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('now',a.getAttribute('href')==='#/'+r));
+  window.scrollTo({top:0});observe();
+}
+window.addEventListener('hashchange',route);
+document.querySelectorAll('.chip,.ages button,.filters button,.opt').forEach(c=>c.addEventListener('click',()=>{
+  if(c.classList.contains('chip')){c.classList.toggle('on');return}
+  c.parentElement.querySelectorAll('button,.opt').forEach(x=>x.classList.remove('on'));c.classList.add('on');
+}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+function observe(){document.querySelectorAll('.screen.on .reveal,.screen.on .draw').forEach(el=>{el.classList.remove('in');io.observe(el)})}
+route();
+</script>
+</body>
+</html>
